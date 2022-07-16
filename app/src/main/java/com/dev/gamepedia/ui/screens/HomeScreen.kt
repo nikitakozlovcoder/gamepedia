@@ -19,7 +19,8 @@ fun HomeScreen(){
             .verticalScroll(scrollState)) {
         LiteAppBar()
         Spacer(modifier = Modifier.height(defaultPadding * 3))
-        Column(verticalArrangement = Arrangement.spacedBy(defaultPadding)) {
+        Column(verticalArrangement = Arrangement.spacedBy(defaultPadding),
+            modifier = Modifier.padding(bottom = defaultPadding)) {
             GameCard()
             GameCard()
             GameCard()

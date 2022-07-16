@@ -18,8 +18,11 @@ private val DarkColorPalette = AppColors(
     ),
     textSecondary = textColorSecondary,
     accent = accentColor,
-    backgroundSecondary = backgroundSecondaryColor
-    )
+    backgroundSecondary = backgroundSecondaryColor,
+    goodScore = scoreGoodColor,
+    mediumScore = scoreMediumColor,
+    badScore = scoreBadColor
+)
 
 private val LightColorPalette = AppColors(
     material = lightColors(
@@ -31,7 +34,10 @@ private val LightColorPalette = AppColors(
     ),
     textSecondary = textColorSecondary,
     accent = accentColor,
-    backgroundSecondary = backgroundSecondaryColor
+    backgroundSecondary = backgroundSecondaryColor,
+    goodScore = scoreGoodColor,
+    mediumScore = scoreMediumColor,
+    badScore = scoreBadColor
 )
 
 
