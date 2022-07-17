@@ -33,8 +33,9 @@ fun GameScore(rating: Int) {
     }
 
     Surface(
-        modifier = Modifier.width(30.dp)
-                .border(BorderStroke(1.dp, GetColor().copy(alpha = 0.4f))
+        modifier = Modifier.width(36.dp)
+                .border(border = BorderStroke(1.dp, GetColor().copy(alpha = 0.4f)),
+                shape = MaterialTheme.shapes.medium
         ),
         color = Color.Transparent,
         shape = MaterialTheme.shapes.medium

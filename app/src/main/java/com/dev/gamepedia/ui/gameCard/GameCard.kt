@@ -19,10 +19,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.gamepedia.R
 import com.dev.gamepedia.models.Platform
+import com.dev.gamepedia.ui.atoms.text.OverlineText
+import com.dev.gamepedia.ui.atoms.text.TitleText
 import com.dev.gamepedia.ui.platform.Platforms
 import com.dev.gamepedia.ui.theme.appColors
 import com.dev.gamepedia.ui.theme.cardInnerHorizontalPadding
 import com.dev.gamepedia.ui.theme.defaultPadding
+import com.dev.gamepedia.ui.theme.defaultRoundedShape
 import org.intellij.lang.annotations.JdkConstants
 import kotlin.random.Random
 
@@ -30,7 +33,7 @@ import kotlin.random.Random
 fun GameCard() {
     Card(
         modifier = Modifier.clickable {  } ,
-        shape = RoundedCornerShape(8.dp),
+        shape = defaultRoundedShape,
         backgroundColor = MaterialTheme.appColors.backgroundSecondary
     ) {
         Column {
@@ -58,16 +61,9 @@ fun GameCard() {
                 }
 
                 Spacer(modifier = Modifier.height(defaultPadding / 2))
-                Text(
-                    text = "The Stanley Parable: Ultra Deluxe",
-                    style = MaterialTheme.typography.h6,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(text = "View more",
-                    style = MaterialTheme.typography.overline
-                )
+                TitleText(text = "The Stanley Parable: Ultra Deluxe")
+                OverlineText(text = "View more")
             }
-
         }
     }
 }
