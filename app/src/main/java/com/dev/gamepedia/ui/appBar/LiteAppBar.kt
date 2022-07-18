@@ -13,17 +13,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.dev.gamepedia.ui.theme.defaultPadding
 
 @Composable
-@Preview
-fun LiteAppBar(){
+fun LiteAppBar(title: String, text: String){
     Column(
         modifier = Modifier.fillMaxWidth().padding(top = defaultPadding * 2),
         horizontalAlignment = Alignment.CenterHorizontally
         ) {
         Text(
-            text = "New and trending",
+            text = title,
             style = MaterialTheme.typography.h4,
             fontWeight = FontWeight.Bold
         )
-        Text(text = "Based on player counts and release date")
+        Text(text = text)
     }
 }

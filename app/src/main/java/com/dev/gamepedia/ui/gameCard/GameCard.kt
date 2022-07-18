@@ -32,7 +32,7 @@ import kotlin.random.Random
 @Composable
 fun GameCard() {
     Card(
-        modifier = Modifier.clickable {  } ,
+        modifier = Modifier.clickable {  },
         shape = defaultRoundedShape,
         backgroundColor = MaterialTheme.appColors.backgroundSecondary
     ) {

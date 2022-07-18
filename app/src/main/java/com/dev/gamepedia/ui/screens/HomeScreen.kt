@@ -21,7 +21,10 @@ fun HomeScreen(){
                 .fillMaxWidth()
                 .verticalScroll(state = rememberScrollState())) {
             Column(modifier = Modifier.padding(horizontal = defaultPadding)) {
-                LiteAppBar()
+                LiteAppBar(
+                    title = "New and trending",
+                    text = "Based on player counts and release date"
+                )
                 Spacer(modifier = Modifier.height(defaultPadding * 3))
                 Column(verticalArrangement = Arrangement.spacedBy(defaultPadding)) {
                     GameCard()
