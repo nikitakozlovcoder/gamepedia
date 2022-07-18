@@ -4,12 +4,17 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 
 @Composable
-fun TitleText(text: String, modifier: Modifier = Modifier, textAlight: TextAlign? = null) {
+fun TitleText(text: String,
+              modifier: Modifier = Modifier,
+              textAlight: TextAlign? = null,
+              color: Color = Color.Unspecified) {
     Text(
+        color = color,
         text = text,
         modifier = modifier,
         style = MaterialTheme.typography.h6,

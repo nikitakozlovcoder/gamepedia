@@ -46,8 +46,8 @@ fun GameCardSlim (text: String) {
                     .defaultMinSize(minHeight = 150.dp),
                 verticalArrangement = Arrangement.Center,
             ) {
-                TitleText(text = text)
-                OverlineText(text = "May 17, 2022")
+                TitleText(text = text, color = Color.White)
+                OverlineText(text = "May 17, 2022", color = Color.White)
             }
         }
     }

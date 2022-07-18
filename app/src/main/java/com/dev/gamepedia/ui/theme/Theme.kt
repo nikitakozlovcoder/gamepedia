@@ -24,24 +24,9 @@ private val DarkColorPalette = AppColors(
     badScore = scoreBadColor
 )
 
-private val LightColorPalette = AppColors(
-    material = lightColors(
-        background = backgroundColor,
-        onSurface = textColorPrimary,
-        onBackground = textColorPrimary,
-        onSecondary = textColorPrimary,
-        onPrimary = textColorPrimary,
-    ),
-    textSecondary = textColorSecondary,
-    accent = accentColor,
-    backgroundSecondary = backgroundSecondaryColor,
-    goodScore = scoreGoodColor,
-    mediumScore = scoreMediumColor,
-    badScore = scoreBadColor
-)
 
 
-private val LocalColors = staticCompositionLocalOf { LightColorPalette }
+private val LocalColors = staticCompositionLocalOf { DarkColorPalette }
 
 val MaterialTheme.appColors: AppColors
     @Composable
@@ -49,13 +34,9 @@ val MaterialTheme.appColors: AppColors
 
 @Composable
 fun GamePediaTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+    val colors = DarkColorPalette
 
-    CompositionLocalProvider(LocalColors provides  colors) {
+    CompositionLocalProvider(LocalColors provides colors) {
         MaterialTheme(
             colors = colors.material,
             typography = Typography,
