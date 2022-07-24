@@ -2,6 +2,7 @@ package com.dev.gamepedia.ui.bottomNavigation
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
@@ -11,37 +12,30 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.dev.gamepedia.R
 import com.dev.gamepedia.constants.navigation.BottomNavigation
+import com.dev.gamepedia.navigation.AppNavigationGraph
 import com.dev.gamepedia.ui.theme.appColors
 
 @Composable
-fun BottomNavigationBar(navController: NavHostController, items: List<BottomNavigation>) {
+fun BottomNavigationBar(navController: AppNavigationGraph, items: List<BottomNavigation>) {
     BottomNavigation(backgroundColor = MaterialTheme.appColors.backgroundSecondary) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentDestination = navBackStackEntry?.destination
         for (item in items){
-            val selected = currentDestination?.hierarchy?.any { it.route == item.route } == true
+            val selected = navController.isActive(item).collectAsState(initial = false)
             BottomNavigationItem(
                 onClick = {
-                    navController.navigate(item.route) {
-                        popUpTo(navController.graph.findStartDestination().id) {
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
+                        navController.navigateTo(item)
                 },
                 icon = {
                     Icon(imageVector = ImageVector
                         .vectorResource(item.icon),
                         contentDescription = item.label,
-                        tint = if (selected) {
+                        tint = if (selected.value) {
                             MaterialTheme.appColors.accent
                         } else {
                             LocalContentColor.current.copy(alpha = LocalContentAlpha.current)
                         }
                     )
                 },
-               selected = selected,
+               selected = selected.value,
             )
         }
     }

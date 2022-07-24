@@ -9,13 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.dev.gamepedia.constants.navigation.BottomNavigation
 import com.dev.gamepedia.ui.bottomNavigation.BottomNavigationBar
-import com.dev.gamepedia.ui.navigation.LocalRootNavController
+import com.dev.gamepedia.ui.navigation.LocalAppNavigationGraph
 
 @Composable
 fun BaseAppScaffold(content: @Composable () -> Unit ) {
     Scaffold(
         bottomBar = {
-            BottomNavigationBar(navController = LocalRootNavController.current!!, items = BottomNavigation.navigationItems)
+            BottomNavigationBar(navController = LocalAppNavigationGraph.current!!, items = BottomNavigation.navigationItems)
         },
         modifier = Modifier
             .fillMaxSize(),

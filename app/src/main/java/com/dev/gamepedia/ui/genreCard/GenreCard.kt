@@ -22,10 +22,14 @@ import com.dev.gamepedia.ui.theme.defaultPadding
 import com.dev.gamepedia.ui.theme.defaultRoundedShape
 
 @Composable
-@Preview
-fun GenreCard(){
+fun GenreCard(onClick: () -> Unit){
     Card(
-        modifier = Modifier.clickable {  }.height(180.dp).fillMaxWidth(),
+        modifier = Modifier
+            .clickable {
+                onClick()
+            }
+            .height(180.dp)
+            .fillMaxWidth(),
         shape = defaultRoundedShape,
         backgroundColor = MaterialTheme.appColors.backgroundSecondary
     ) {
